@@ -3,10 +3,10 @@ const FILES_TO_CACHE = [
     './',
     "./idb.js",
     './manifest.webmanifest',
-    './style.css',
+    './styles.css',
     './icons/icon-192x192.png',
-    './icons/icon-512x512.png',
-]
+    './icons/icon-512x512.png'
+];
 
 const STATIC_CACHE = "static-cache-v1";
 const RUNTIME_CACHE = "runtime-cache";
@@ -54,7 +54,7 @@ self.addEventListener("fetch", event => {
   }
 
   // handle runtime GET requests for data from /api routes
-  if (event.request.url.includes("/api/images")) {
+  if (event.request.url.includes("/api/transaction")) {
     // make network request and fallback to cache if network request fails (offline)
     event.respondWith(
       caches.open(RUNTIME_CACHE).then(cache => {
