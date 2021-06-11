@@ -32,6 +32,12 @@
 
   Reach out to me via Github if there are any questions! Otherwise use my email!:
 
+  ## Links
+
+  ## Visuals
+
+  
+
   Github: [drae7299](https://www.github.com/)
 
   Email: drae7299@gmail.com
