@@ -26,7 +26,7 @@ self.addEventListener("install", event => {
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener("activate", event => {
-  const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
+  const currentCaches = [CACHE_NAME, DATA_CACHE_NAME];
   event.waitUntil(
     caches
       .keys()
@@ -61,7 +61,7 @@ self.addEventListener("fetch", event => {
   if (event.request.url.includes("/api/transaction")) {
     // make network request and fallback to cache if network request fails (offline)
     event.respondWith(
-      caches.open(RUNTIME_CACHE).then(cache => {
+      caches.open(DATA_CACHE_NAME).then(cache => {
         return fetch(event.request)
           .then(response => {
             cache.put(event.request, response.clone());
@@ -81,7 +81,7 @@ self.addEventListener("fetch", event => {
       }
 
       // request is not in cache. make network request and cache the response
-      return caches.open(RUNTIME_CACHE).then(cache => {
+      return caches.open(DATA_CACHE_NAME).then(cache => {
         return fetch(event.request).then(response => {
           return cache.put(event.request, response.clone()).then(() => {
             return response;
