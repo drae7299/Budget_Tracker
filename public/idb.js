@@ -15,7 +15,7 @@ request.onupgradeneeded = function (e) {
   db = e.target.result;
 
   if (db.objectStoreNames.length === 0) {
-    db.createObjectStore('BudgetStore', { autoIncrement: true });
+    db.createObjectStore('budgetStore', { autoIncrement: true });
   }
 };
 
